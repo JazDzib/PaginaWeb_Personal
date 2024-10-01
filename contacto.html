@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Página personal</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <nav>
+                <!-- SPAN no genera un salto de línea antes o después de su contenido, lo que lo hace útil para aplicar cambios dentro de líneas de texto sin afectar la estructura del documento. -->
+                <h2 class="logo">Sitio <span>Personal</span></h2>
+                <ul>
+                    <li><a href='index.html'>Inicio</a></li>
+                    <li><a href='autobiografia.html'>Quién soy</a></li>
+                    <li><a href='galeria.html'>Galería</a></li>
+                    <li><a href='contacto.html'>Contacto</a></li>
+                    <li><a href='ejercicios.html'>Ejercicios</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+
+    <div class="conactotext">
+        <p>Proporciona tu información para poder ponernos en contacto</p>
+    </div>
+
+
+    <div class="contacto">
+
+
+        <!-- Formulario simple que enviará una petición GET -->
+        <form id="miFormulario">
+
+
+            <!-- caja de texto -->
+            <fieldset>
+                <legend>Nombre Completo</legend>
+                Nombre: <input name="nombre" id="nombreCompleto" type="text">
+                Apellidos: <input name="apellidos" id="apellidos" type="text">
+            </fieldset>
+
+            <!-- radio botones -->
+            <fieldset>
+                <legend>Género</legend>
+                <input type="radio" name="radio1" id="masculino" value="Masculino"> Masculino
+                <input type="radio" name="radio1" id="femenino" value="Femenino"> Femenino
+            </fieldset>
+
+            <!-- checkBox -->
+            <fieldset>
+                <legend>Intereses</legend>
+                <input type="checkbox" name="deporte" value="Deportes"> Hacer Deporte
+                <input type="checkbox" name="tv" value="Televisión"> Ver Televisión
+                <input type="checkbox" name="ejercicio" value="Ejercicio"> Hacer Ejercicio
+            </fieldset>
+
+            <!-- select -->
+            <fieldset>
+                <legend>Estudios Actuales</legend>
+                <select name="select" id="selectEstudios">
+                    <option value="">Selecciona una opción</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Bachillerato">Bachillerato</option>
+                    <option value="Licenciatura">Licenciatura</option>
+                </select>
+            </fieldset>
+
+            <!-- lista desplegable -->
+            <fieldset>
+                <legend>Navegador usado</legend>
+                <label>Selecciona el Buscador utilizado:
+                    <input list="buscadores" name="MisBuscadores" id="buscadores">
+                </label>
+                <datalist id="buscadores">
+                    <option value="Chrome">
+                    <option value="Firefox">
+                    <option value="Internet Explorer">
+                    <option value="Opera">
+                    <option value="Safari">
+                    <option value="Microsoft Edge">
+                </datalist>
+            </fieldset>
+
+            <p><input type="submit"></p>
+
+        </form>
+
+        <script>
+            let formSubmitted = false;
+            // Variable para controlar si el formulario ya se ha enviado
+
+            function validarFormulario(event) {
+                if (formSubmitted) {
+                    alert("El formulario ya fue enviado.");
+                    event.preventDefault();
+                    return;
+                }
+
+                // Validar que los campos de texto no contengan números
+                let nombreCompleto = document.getElementById("nombreCompleto").value;
+                let apellidos = document.getElementById("apellidos").value;
+                let nombreRegex = /^[A-Za-z\s]+$/;
+
+                if (!nombreRegex.test(nombreCompleto) || !nombreRegex.test(apellidos)) {
+                    alert("Los campos de nombre y apellidos no deben estar vacio o contener números.");
+                    event.preventDefault();
+                    return;
+                }
+
+
+                let generoSeleccionado = document.querySelector('input[name="radio1"]:checked');
+                if (!generoSeleccionado) {
+                    alert("Por favor, selecciona un género.");
+                    event.preventDefault();
+                    return;
+                }
+                let estudiosSeleccionados = document.getElementById("selectEstudios").value;
+                if (estudiosSeleccionados === "") {
+                    alert("Por favor, selecciona un nivel de estudios.");
+                    event.preventDefault();
+                    return;
+                }
+                formSubmitted = true;
+            }
+            document.getElementById("miFormulario").addEventListener("submit", validarFormulario);
+        </script>
+    </div>
+    <div class="mapa">
+        <!-- mapa embebido de Google Maps -->
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.826243423141!2d-88.14632672575681!3d21.159312083283776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f522b6c741fe2ff%3A0x1a4273ac58448ae1!2sUADY%20-%20Unidad%20Multidisciplinaria%20Tizim%C3%ADn!5e0!3m2!1ses-419!2smx!4v1724179783985!5m2!1ses-419!2smx"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <footer>
+        <p>Jazmin Dzib</p>
+        <div class="redes">
+            <a href="https://www.facebook.com/jazmin.dzib.564/?locale=es_LA"><img width="30" height="30"
+                    src="https://img.icons8.com/material-sharp/24/facebook.png" alt="facebook" /></a>
+            <a href="https://www.instagram.com/jaz_dzib/"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/instagram-new.png" alt="instagram-new" /></a>
+            <a href="https://www.linkedin.com/in/jazmin-dzib-88683826b/"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/linkedin.png" alt="linkedin" /></a>
+            <a href="https://github.com/JazDzib"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github" /></i></a>
+        </div>
+        <p>Tizimín, Yucatán, Agosto, 2024.</p>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+	<meta charset='utf-8' />
+	<title>Página personal</title>
+	<link rel="stylesheet" type="text/css" href="CSS/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
+</head>
+
+<body>
+	<div class="hero">
+		<header>
+			<nav>
+				<!-- SPAN no genera un salto de línea antes o después de su contenido, lo que lo hace útil para aplicar cambios dentro de líneas de texto sin afectar la estructura del documento. -->
+				<h2 class="logo">Sitio <span>Personal</span></h2>
+				<ul>
+					<li><a href='index.html'>Inicio</a></li>
+					<li><a href='autobiografia.html'>Quién soy</a></li>
+					<li><a href='galeria.html'>Galería</a></li>
+					<li><a href='contacto.html'>Contacto</a></li>
+					<li><a href='ejercicios.html'>Ejercicios</a></li>
+				</ul>
+			</nav>
+		</header>
+	</div>
+	<div class="contenido">
+		<h4>Hola a todos</h4>
+		<h1>Bienvenidos </h1>
+		<h3>Esta es mi primer página personal</h3>
+		<p><b>En este sitio encontrarás información acerca de mi persona, alguna imagenes y una sección de
+				contacto</b></p>
+	</div>
+
+	<div class="gato">
+		<img src="img/gato.gif" width="300" height="300" />
+		<p><i><span>El gato es el animal con el que me identifico y tambien representa mi día a día</span> </i></p>
+		<!-- audio -->
+		<p><audio controls>
+				<source src="multimedia/teclado.mp3" type="audio/mpeg">
+			</audio></p>
+		<section class="fecha">
+
+			<script type="text/javascript">
+				function mostrar_Fecha() {
+					document.write(new Date());
+				}
+
+			</script>
+
+			<script type="text/javascript">
+				mostrar_Fecha();
+			</script>
+		</section>
+	</div>
+
+	<footer>
+		<p>Jazmin Dzib</p>
+		<div class="redes">
+			<a href="https://www.facebook.com/jazmin.dzib.564/?locale=es_LA"><img width="30" height="30"
+					src="https://img.icons8.com/material-sharp/24/facebook.png" alt="facebook" /></a>
+			<a href="https://www.instagram.com/jaz_dzib/"><img width="30" height="30"
+					src="https://img.icons8.com/ios-glyphs/30/instagram-new.png" alt="instagram-new" /></a>
+			<a href="https://www.linkedin.com/in/jazmin-dzib-88683826b/"><img width="30" height="30"
+					src="https://img.icons8.com/ios-glyphs/30/linkedin.png" alt="linkedin" /></a>
+			<a href="https://github.com/JazDzib"><img width="30" height="30"
+					src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github" /></i></a>
+		</div>
+		<p>Tizimín, Yucatán, Agosto, 2024.</p>
+
+	</footer>
+</body>
+
+</html>

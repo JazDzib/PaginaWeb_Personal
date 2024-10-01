@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Página personal</title>
+    <link rel="stylesheet" type="text/css" href="CSS/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+</head>
+
+<body>
+    <div>
+        <header>
+            <nav>
+                <!-- SPAN no genera un salto de línea antes o después de su contenido, lo que lo hace útil para aplicar cambios dentro de líneas de texto sin afectar la estructura del documento. -->
+                <h2 class="logo">Sitio <span>Personal</span></h2>
+                <ul>
+                    <li><a href='index.html'>Inicio</a></li>
+                    <li><a href='autobiografia.html'>Quién soy</a></li>
+                    <li><a href='galeria.html'>Galería</a></li>
+                    <li><a href='contacto.html'>Contacto</a></li>
+                    <li><a href='ejercicios.html'>Ejercicios</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="ejercicios">
+
+        <section class="Calculadora">
+            <script type="text/javascript">
+                // Variable para guardar el primer número
+                let primerNumero = null;
+
+                function vaciar() {
+                    document.getElementById("n1").value = "";
+                }
+
+                function cuadrado() {
+                    let num = document.getElementById("n1");
+                    num.value = num.value * num.value;
+                }
+            </script>
+            <h4>Calculadora</h4>
+            <!-- Campo para ingresar el número -->
+            <input type="text" id="n1" placeholder="Ingresa un número" onclick="vaciar()">
+            <!-- Botón para calcular el cuadrado -->
+            <button onclick="cuadrado()">
+                x<sup>2</sup>
+            </button>
+        </section>
+        <section class="Convertidor">
+            <h4>Convertidor</h4>
+            <script type="text/javascript">
+                function convertir() {
+                    let euro = document.getElementById("euro").value;
+                    let dolares = euro * 1.08;
+                    let yen = euro * 133.75;
+                    let resultado = document.getElementById("resultado");
+                    resultado.innerHTML = euro + " Euros son: " + dolares.toFixed(2) + " Dólares<br>"
+                        + euro + " Euros son: " + yen.toFixed(2) + " Yen";
+                }
+                function vaciar() {
+                    document.getElementById("euro").value = "";
+                }
+            </script>
+            <input type="text" id="euro" placeholder="euros que quiere convertir" onclick="vaciar()">
+            <button onclick="convertir()">Convertir</button>
+            <div id="resultado"></div>
+        </section>
+        <section class="Cuestionario">
+            <h4>Cuestionario</h4>
+
+            <div class="question" id="q1">
+                <p>1. ¿Dondé se encuentra la UMT?</p>
+                <label><input type="radio" name="q1" value="true"> Tizimín</label><br>
+                <label><input type="radio" name="q1" value="false"> Merida</label>
+                <div class="result" id="result1"></div>
+            </div>
+
+            <div class="question" id="q2">
+                <p>2. ¿Podemos usar codigo de javascript dentro del archivo HTML sin ninguna etiqueta?</p>
+                <label><input type="radio" name="q2" value="true"> Verdadero</label><br>
+                <label><input type="radio" name="q2" value="false"> Falso</label>
+                <div class="result" id="result2"></div>
+            </div>
+
+            <div class="question" id="q3">
+                <p>3. ¿LIS es una carrera en la UMT?</p>
+                <label><input type="radio" name="q3" value="true"> Verdadero</label><br>
+                <label><input type="radio" name="q3" value="false"> Falso</label>
+                <div class="result" id="result3"></div>
+            </div>
+
+            <div class="question" id="q4">
+                <p>4. ¿El morado es un color primario?</p>
+                <label><input type="radio" name="q4" value="true"> Verdadero</label><br>
+                <label><input type="radio" name="q4" value="false"> Falso</label>
+                <div class="result" id="result4"></div>
+            </div>
+
+            <div class="question" id="q5">
+                <p>5. ¿Que color forma el verde con el rojo? </p>
+                <label><input type="radio" name="q5" value="true"> Amarillo</label><br>
+                <label><input type="radio" name="q5" value="false"> Naranja</label>
+                <div class="result" id="result5"></div>
+            </div>
+
+            <button id="clearBtn">Limpiar Cuestionario</button>
+
+            <script>
+                const correctAnswers = {
+                    q1: "true",
+                    q2: "false",
+                    q3: "true",
+                    q4: "false",
+                    q5: "true"
+                };
+
+                document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        const questionId = radio.name;
+                        const resultElement = document.getElementById('result' + questionId.charAt(1));
+
+                        if (radio.value === correctAnswers[questionId]) {
+                            resultElement.textContent = "Correcto";
+                            resultElement.className = "result correct";
+                        } else {
+                            resultElement.textContent = "Incorrecto";
+                            resultElement.className = "result incorrect";
+                        }
+                    });
+                });
+
+                document.getElementById('clearBtn').addEventListener('click', () => {
+                    document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+                    document.querySelectorAll('.result').forEach(result => result.textContent = "");
+                });
+            </script>
+
+        </section>
+
+
+
+    </div>
+
+
+    <footer>
+        <p>Jazmin Dzib</p>
+        <div class="redes">
+            <a href="https://www.facebook.com/jazmin.dzib.564/?locale=es_LA"><img width="30" height="30"
+                    src="https://img.icons8.com/material-sharp/24/facebook.png" alt="facebook" /></a>
+            <a href="https://www.instagram.com/jaz_dzib/"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/instagram-new.png" alt="instagram-new" /></a>
+            <a href="https://www.linkedin.com/in/jazmin-dzib-88683826b/"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/linkedin.png" alt="linkedin" /></a>
+            <a href="https://github.com/JazDzib"><img width="30" height="30"
+                    src="https://img.icons8.com/ios-glyphs/30/github.png" alt="github" /></i></a>
+        </div>
+        <p>Tizimín, Yucatán, Agosto, 2024.</p>
+
+    </footer>
+</body>
+
+</html>
